@@ -1,0 +1,4 @@
+# Configure mongo
+spring:
+  data:
+    mongodb:
