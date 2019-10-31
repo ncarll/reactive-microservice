@@ -1,4 +1,4 @@
-package com.enrsx.reactivemicroservice.account;
+package reactive.microservice.account;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -28,7 +28,7 @@ import java.util.stream.Stream;
 
 @EnableDiscoveryClient
 @PropertySource("classpath:account.properties")
-@SpringBootApplication(scanBasePackages = "com.enrsx.reactivemicroservice.account")
+@SpringBootApplication(scanBasePackages = "reactive.microservice.account")
 public class AccountServiceApplication {
 
     public static void main(String[] args) {

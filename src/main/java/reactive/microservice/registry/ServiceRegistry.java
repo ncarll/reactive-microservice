@@ -1,4 +1,4 @@
-package com.enrsx.reactivemicroservice.registry;
+package reactive.microservice.registry;
 
 public final class ServiceRegistry {
 

@@ -1,4 +1,4 @@
-package com.enrsx.reactivemicroservice.discovery;
+package reactive.microservice.discovery;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -11,7 +11,7 @@ import org.springframework.context.annotation.PropertySource;
 
 @EnableEurekaServer
 @PropertySource("classpath:/eureka.properties")
-@SpringBootApplication(scanBasePackages = "com.enrsx.reactivemicroservice.discovery", exclude =
+@SpringBootApplication(scanBasePackages = "reactive.microservice.discovery", exclude =
         {MongoAutoConfiguration.class, MongoDataAutoConfiguration.class, MongoReactiveAutoConfiguration.class,
                 EurekaClientAutoConfiguration.class})
 public class EurekaServer {
