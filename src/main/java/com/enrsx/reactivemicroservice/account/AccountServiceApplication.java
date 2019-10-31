@@ -14,7 +14,9 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.repository.reactive.ReactiveCrudRepository;
 import org.springframework.http.MediaType;
+import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -96,5 +98,17 @@ class IntervalMessageProducer {
     Flux<String> produce(final String name) {
         return Flux.fromStream(Stream.generate(() -> "Hello " + name + " @ " + Instant.now()))
                 .delayElements(Duration.ofSeconds(1));
+    }
+}
+
+@Controller
+@RequiredArgsConstructor
+class RSocketAccountController {
+
+    private final IntervalMessageProducer intervalMessageProducer;
+
+    @MessageMapping("account")
+    Flux<String> getAccounts(String name) {
+        return intervalMessageProducer.produce(name);
     }
 }
