@@ -25,14 +25,16 @@ public class ProfileServiceApplication {
     }
 }
 
+@Slf4j
 @RestController
 @RequiredArgsConstructor
 class ProfileController {
 
     private final ServiceResolver serviceResolver;
 
-    @GetMapping(produces = MediaType.TEXT_EVENT_STREAM_VALUE, value = "/account/sse/{name}")
+    @GetMapping(produces = MediaType.TEXT_EVENT_STREAM_VALUE, value = "/profile/sse/{name}")
     public Flux<String> nameFlux(@PathVariable final String name) {
+        logger.info("Requesting flux for {}", name);
         final var requesterMono = serviceResolver.getService(ServiceRegistry.ACCOUNT_SERVICE);
         return requesterMono.flatMapMany(requester ->
                 requester.route("account")

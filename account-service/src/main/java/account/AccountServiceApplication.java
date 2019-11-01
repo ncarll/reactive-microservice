@@ -79,12 +79,12 @@ class AccountController {
     private final AccountRepository accountRepository;
     private final IntervalMessageProducer producer;
 
-    @GetMapping("/accounts")
+    @GetMapping("/account/all")
     Flux<Account> accountPublisher() {
         return accountRepository.findAll();
     }
 
-    @GetMapping(produces = MediaType.TEXT_EVENT_STREAM_VALUE, value = "/sse/{name}")
+    @GetMapping(produces = MediaType.TEXT_EVENT_STREAM_VALUE, value = "/account/sse/{name}")
     public Flux<String> ssePublisher(@PathVariable final String name) {
         return producer.produce(name);
     }
