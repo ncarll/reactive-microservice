@@ -1,7 +1,7 @@
 # Reactive Microservices Sample
 
 - Services communicate directly over TCP (or websocket) using RSocket.  
-- Services can also accept any assigned port.  The port and hostname are reported to the Eureka server and distributed to ``@DiscoveryClient`` instances.  
+- Services can also accept any assigned port.  The port and hostname/IP are reported to the Eureka server (or Consul) and distributed to ``@DiscoveryClient`` instances.  
 - Gateway service is also a client of Eureka and can automatically locate and load balance (Ribbon) requests.
 
 ## To Run
