@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
@@ -90,10 +91,12 @@ class AccountController {
     }
 }
 
+@Slf4j
 @Component
 class IntervalMessageProducer {
 
     Flux<String> produce(final String name) {
+        logger.info("Producing data stream for {}", name);
         return Flux.fromStream(Stream.generate(() -> "Hello " + name + " @ " + Instant.now()))
                 .delayElements(Duration.ofSeconds(1));
     }

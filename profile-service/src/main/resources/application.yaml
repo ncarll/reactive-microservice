@@ -1,0 +1,15 @@
+server:
+  port: 0
+spring:
+  application:
+    name: profile-service
+
+info:
+  app:
+    name: Sample Profile Service
+    description: Service to manage user profiles
+    dependencies: Requires account-service
+management:
+  endpoint:
+    health:
+      show-details: always

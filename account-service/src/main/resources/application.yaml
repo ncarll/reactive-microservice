@@ -1,0 +1,32 @@
+# Take any port assignment
+server:
+  port: 0
+
+# Spring config
+# - register an RSocket port
+spring:
+  rsocket:
+    server:
+      port: 8000
+  application:
+    name: account-service
+  data:
+    mongodb:
+      host:
+
+# Actuator
+info:
+  app:
+    name: Sample Account Service
+    description: Service to manage user accounts
+management:
+  endpoint:
+    health:
+      show-details: always
+
+# Eureka config
+# - add RSocket port to instance metadata
+eureka:
+  instance:
+    metadataMap:
+      rsocket-port: ${spring.rsocket.server.port}
