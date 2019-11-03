@@ -9,7 +9,7 @@
 - Start the client services ``account-service`` and ``profile-service``
 - Start the ``gateway-service``
 
-Order is theoretically not important, but it takes time for the services to discover each other.  If you're impatient or frequently restarting a service, you may find the registrations to get outdated and return incorrect responses or statuses.  Safest bet is to restart all of the them.  These are small services; it's fast. 
+Order is theoretically not important, but it takes time for the services to discover each other.  If you're impatient or frequently restarting a service, you may find the registrations get outdated and return incorrect responses or statuses.  Safest bet is to restart all of the them.  These are small services; it's fast. 
 
 ## Links
 - URIs starting with ``/account`` are directed to the ``account-service``.
